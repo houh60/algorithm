@@ -753,28 +753,6 @@ const ll = new LinkedList();
 // ll.insertLast(400);
 // ll.printListData();
 
-// function generateParenthesis(n) {
-//     let result = [];
-//     backtrack(result, '', 0, 0, n);
-//     return result;
-// }
-
-// function backtrack(result, currentString, open, close, max) {
-//     if(currentString.length == max * 2) {
-//         result.push(currentString);
-//         return;
-//     }
-//     if(open < max) {
-//         backtrack(result, currentString + '(', open + 1, close, max);
-//     }
-//     if(close < open) {
-//         backtrack(result, currentString + ')', open, close + 1, max);
-//     }
-// }
-
-// console.log('generateParenthesis(): ', generateParenthesis(3));
-
-
 
 function generateParenthesis(n) {
     let result = [];
@@ -797,4 +775,4 @@ function backtrack(result, currentString, open, close, max) {
     }
 };
 
-console.log('generateParenthesis(n): ', generateParenthesis(3));
+// console.log('generateParenthesis(n): ', generateParenthesis(3));
