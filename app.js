@@ -34,6 +34,7 @@ const INPUT = 'The quick brown fox jumped under the nearby tree. What the fox di
 
 // repeatedwords(INPUT);
 
+/* Given a string s, find the length of the longest substring without repeating characters. */
 
 function lengthOfLongestSubstring(s) {
     let indice = [];
@@ -57,6 +58,10 @@ let s = "abcabcbb";
 // s = "pwwkew";
 // console.log('lengthOfLongestSubstring(s): ', lengthOfLongestSubstring(s));
 
+/* Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+The overall run time complexity should be O(log (m+n)). */
+
 function findMedianSortedArrays(nums1, nums2) {
     let set = new Set([...nums1, ...nums2]);
     let array = Array.from(set).sort((x, y) => { return x - y; });
@@ -74,6 +79,8 @@ let nums1 = [1, 3, 8], nums2 = [2, 5, 7];
 
 // console.log('findMedianSortedArrays(nums1, nums2): ', findMedianSortedArrays(nums1, nums2));
 
+
+/*Given a string s, return the longest palindromic substring in s. */
 function longestPalindrome(s) {
     let subStrArr = new Set();
     let obj = {};
@@ -120,6 +127,9 @@ s = "babad";
 s = "babab";
 // console.log('longestPalindrome(s): ', longestPalindrome(s));
 
+/*Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).*/
 function reverse(x) {
     let str = '' + x;
     let reverStr;
@@ -134,6 +144,7 @@ function reverse(x) {
 
 // console.log('reverse(123): ', reverse(-123));
 
+/**Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function). */
 function myAtoi(s) {
     let str;
     s = '' + s;
@@ -159,6 +170,7 @@ function myAtoi(s) {
 };
 
 // myAtoi(-13);
+
 
 function myAtoi2(s) {
     let subStr = '';
@@ -194,6 +206,9 @@ function myAtoi2(s) {
 // console.log('myAtoi2( + 00042000 babab    ): ', myAtoi2(' + 00042000 babab    '));
 // console.log('myAtoi2(00042000babab): ', myAtoi2('00042000babab'));
 
+/**Given an integer x, return true if x is palindrome integer.
+
+An integer is a palindrome when it reads the same backward as forward. */
 
 function isPalindrome(x) {
     let str = '' + x;
@@ -209,6 +224,13 @@ function isPalindrome(x) {
 
 // console.log('isPalindrome(121): ', isPalindrome(-121));
 
+/**Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+
+'.' Matches any single character.​​​​
+'*' Matches zero or more of the preceding element.
+The matching should cover the entire input string (not partial).
+
+ */
 function isMatch(s, p) {
     if(s.length == p.length) {
         let num = 0;
@@ -249,6 +271,7 @@ function isMatch(s, p) {
 // console.log('a' == '.');
 // console.log('isMatch(): ', isMatch('ab', '..'));
 
+/** Container With Most Water */
 function maxArea(height) {
     let capacities = [];
     for(let i = 0; i < height.length - 1; i++) {
@@ -268,6 +291,7 @@ function maxArea(height) {
 let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
 // console.log('maxArea(height): ', maxArea(height));
 
+/**Integer to Roman */
 function intToRoman(num) {
     num = '' + num;
     let final = [];
@@ -498,6 +522,7 @@ function romanToInt(s) {
 
 // romanToInt('CMXCIV');
 
+/**Longest Common Prefix */
 function longestCommonPrefix(strs) {
     let lens = [];
     let pres = [];
@@ -528,6 +553,8 @@ let strs = ["flower", "flow", "flight"];
 // strs = ["dog", "racecar", "car"];
 // longestCommonPrefix(strs);
 
+
+//3Sum
 function threeSum(nums) {
     let triplets = [];
     for(let i = 0; i < nums.length - 2; i++) {
@@ -554,6 +581,7 @@ function threeSum(nums) {
 let nums = [-1, 0, 1, 2, -1, -4];
 // threeSum(nums);
 
+//3Sum Closest
 function threeSumClosest(nums, target) {
     let triplets = [];
     let sums = [];
@@ -579,6 +607,7 @@ function threeSumClosest(nums, target) {
 nums = [-1, 2, 1, -4], target = 1;
 // threeSumClosest(nums, target);
 
+//Letter Combinations of a Phone Number
 function letterCombinations(digits) {
     let digLetters = {
         2: ['a', 'b', 'c'],
@@ -649,6 +678,7 @@ function letterCombinations(digits) {
 let digits = "25";
 // console.log('letterCombinations(digits): ', letterCombinations(digits).sort());
 
+//4Sum
 function fourSum(nums, target) {
     let result = [];
     for(let i = 0; i < nums.length - 3; i++) {
@@ -670,6 +700,7 @@ nums = [1, 0, -1, 0, -2, 2];
 target = 0;
 // fourSum(nums, target);
 
+//Valid Parentheses
 function isValid(s) {
     if(s.length % 2 != 0) {
         return false;
@@ -753,7 +784,7 @@ const ll = new LinkedList();
 // ll.insertLast(400);
 // ll.printListData();
 
-
+//Generate Parentheses
 function generateParenthesis(n) {
     let result = [];
     backtrack(result, '', 0, 0, n);
@@ -776,3 +807,18 @@ function backtrack(result, currentString, open, close, max) {
 };
 
 // console.log('generateParenthesis(n): ', generateParenthesis(3));
+
+//Remove Duplicates from Sorted Array
+function removeDuplicates(nums) {
+    for(let i = 0; i < nums.length; i++) {
+        for(let j = i + 1; j < nums.length; j++) {
+            if(nums[i] == nums[j]) {
+                nums.splice(i, 1);
+            }
+        }
+    }
+    return nums;
+}
+
+nums = [1, 1, 2];
+// console.log('removeDuplicates(nums): ', removeDuplicates(nums));
